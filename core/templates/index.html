@@ -1,0 +1,45 @@
+{%load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YT Mongo</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container">
+    <center>
+        <H1>YT Mongo</H1>
+    </center>
+    <H2>Add Your Video Here</H2>
+    {% bootstrap_messages %}
+    <form action="{% url 'index' %}", method="post" class="form" autocomplete="off">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">Send Video</button>
+        {% endbuttons %}
+    </form>
+    </div>
+    <div>
+        <h2>Click Here to <a href="{% url 'classification' %}">See Neatly</a></h2>
+        <center>
+            <div><H2></br>Watch and Rate Other Videos</br></H2></div>
+            <div>
+            {% for video in videos %}
+                <div>
+                    <h2>{{ video.titulo }}</h2>
+                    <h3>{{ video.tema }}</h3>
+                    <iframe class="embed-responsive-item" width="620" height="315" src="{{ video.url }}"></iframe>
+                    <H3>Rate This Video</H3>
+                    <h5>Click Here to <a href="{% url 'like' video.identification %}">Like</a></h5>
+                    <h5>Click Here to <a href="{% url 'dislike' video.identification %}">Dislike</a></h5>
+                    <h4>Likes: {{ video.likes }} Deslikes: {{ video.deslikes }}</h4>
+                </div>
+            {% endfor %}
+            </div>
+        </center>
+    </div>
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>

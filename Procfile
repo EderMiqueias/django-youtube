@@ -1,0 +1,1 @@
+web: gunicorn mongo3.wsgi --log-file -
