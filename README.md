@@ -1,4 +1,4 @@
-# Django With Mongo
+# Django You Tube
 
 ## In this project I will be using django together with mongodb.
 
