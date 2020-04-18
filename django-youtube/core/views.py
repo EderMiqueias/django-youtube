@@ -6,7 +6,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from operator import attrgetter
 
-client = MongoClient(host='localhost')
+client = MongoClient(host='35.193.200.100',port=2323)
 db = client.teste7
 colect = db.objects
 
@@ -19,13 +19,12 @@ def index(request):
     if str(request.method) == 'POST':
         if form.is_valid():
             titulo = form.cleaned_data['titulo']
-            temaChoices = ['music','entertainment','news','politics','games']
             tema = form.cleaned_data['tema']
             url = form.cleaned_data['url']
             url = str(url).replace("watch?v=","embed/")
             conteudo = {
                 'titulo':titulo,
-                'tema':temaChoices[int(tema)-1],
+                'tema':tema,
                 'url':url,
                 'likes':0,
                 'deslikes':0

@@ -1,0 +1,37 @@
+{%load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classification</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <div>
+        <center>
+            <div>
+                <H1></br>Watch Videos by Theme </br></H1></div>
+                <h2>Or</h2>
+                <h2><a href="{% url 'index' %}">Back</a> </h2>
+            <div>
+            {% for tema in temas %}
+                <div>
+                    <h1>{{ tema }}</h1>
+                    {% for video in videos %}
+                        <div>
+                            {% if video.tema == tema %}
+                            <div>
+                                <h3>{{ video.titulo }}</h3>
+                                <h4>Score: {{ video.score }}</h4>
+                                <iframe class="embed-responsive-item" width="620" height="315" src="{{ video.url }}"></iframe>
+                            </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            </div>
+        </center>
+    </div>
+</body>
+</html>

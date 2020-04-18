@@ -14,11 +14,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'bootstrap4',
+    'stdimage',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -51,8 +51,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'teste7',
-        'HOST': 'localhost',
-        #'PORT': 2323,
+        'HOST': '35.193.200.100',
+        'PORT': 2323,
     }
 }
 
