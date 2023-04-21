@@ -18,5 +18,5 @@ python-utils==2.3.0
 pytz==2019.3
 six==1.14.0
 soupsieve==2.0
-sqlparse==0.2.4
+sqlparse==0.4.4
 whitenoise==5.0.1
